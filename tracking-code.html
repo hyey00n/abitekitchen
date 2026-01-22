@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에이바이트키친 - 추적 코드 설치 가이드</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #5D4E37;
+            border-bottom: 3px solid #C9A88A;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #C9A88A;
+            margin-top: 30px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .utm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .utm-table th, .utm-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .utm-table th {
+            background: #C9A88A;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>🎯 에이바이트키친 마케팅 추적 코드</h1>
+        <p>아래 코드들을 HTML 파일의 <code>&lt;head&gt;</code> 섹션에 복사해서 붙여넣으세요.</p>
+    </div>
+
+    <!-- Google Analytics 4 -->
+    <div class="section">
+        <h2>1. Google Analytics 4 (GA4) - 필수 ✅</h2>
+        <p><strong>설치 위치:</strong> 모든 페이지의 <code>&lt;head&gt;</code> 태그 안, 가장 위쪽</p>
+        
+        <div class="note">
+            <strong>⚠️ 설치 전 준비:</strong><br>
+            1. <a href="https://analytics.google.com" target="_blank">Google Analytics</a> 접속<br>
+            2. 계정 생성 → 속성 생성 → 데이터 스트림 추가<br>
+            3. 측정 ID (G-XXXXXXXXXX) 복사<br>
+            4. 아래 코드의 <code>G-XXXXXXXXXX</code>를 본인의 측정 ID로 변경
+        </div>
+
+        <pre><code>&lt;!-- Google Analytics 4 --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  
+  // 커스텀 이벤트 - QR 코드 스캔 추적
+  if (window.location.search.includes('utm_source=qr')) {
+    gtag('event', 'qr_scan', {
+      'event_category': 'engagement',
+      'event_label': 'business_card'
+    });
+  }
+  
+  // 커스텀 이벤트 - 제휴문의 버튼 클릭 시
+  function trackPartnershipClick() {
+    gtag('event', 'partnership_inquiry', {
+      'event_category': 'conversion',
+      'event_label': 'form_click'
+    });
+  }
+&lt;/script&gt;</code></pre>
+
+        <p><strong>제휴문의 버튼에 추가:</strong></p>
+        <pre><code>&lt;a href="구글폼링크" onclick="trackPartnershipClick()"&gt;제휴 문의하기&lt;/a&gt;</code></pre>
+    </div>
+
+    <!-- Meta Pixel -->
+    <div class="section">
+        <h2>2. Meta Pixel (페이스북/인스타그램) - 선택 ⭕</h2>
+        <p><strong>설치 위치:</strong> 모든 페이지의 <code>&lt;head&gt;</code> 태그 안</p>
+        
+        <div class="note">
+            <strong>⚠️ 설치 전 준비:</strong><br>
+            1. <a href="https://business.facebook.com/events_manager" target="_blank">Meta Events Manager</a> 접속<br>
+            2. 픽셀 생성<br>
+            3. 픽셀 ID (숫자) 복사<br>
+            4. 아래 코드의 <code>YOUR_PIXEL_ID</code>를 본인의 픽셀 ID로 변경
+        </div>
+
+        <pre><code>&lt;!-- Meta Pixel Code --&gt;
+&lt;script&gt;
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+&lt;/script&gt;
+&lt;noscript&gt;
+&lt;img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/&gt;
+&lt;/noscript&gt;
+&lt;!-- End Meta Pixel Code --&gt;</code></pre>
+    </div>
+
+    <!-- UTM Parameters -->
+    <div class="section">
+        <h2>3. UTM 파라미터 전략 🎯</h2>
+        <p>유입 경로별 URL을 구분해서 사용하세요. GA4에서 소스별 분석이 가능합니다.</p>
+        
+        <table class="utm-table">
+            <thead>
+                <tr>
+                    <th>용도</th>
+                    <th>URL</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>명함 QR코드</strong></td>
+                    <td><code>https://abitekitchen.com/?utm_source=qr&utm_medium=business_card&utm_campaign=2026_branding</code></td>
+                    <td>명함 효과 측정</td>
+                </tr>
+                <tr>
+                    <td><strong>인스타 프로필</strong></td>
+                    <td><code>https://abitekitchen.com/?utm_source=instagram&utm_medium=bio_link&utm_campaign=social_organic</code></td>
+                    <td>인스타그램 유입</td>
+                </tr>
+                <tr>
+                    <td><strong>인스타 스토리</strong></td>
+                    <td><code>https://abitekitchen.com/?utm_source=instagram&utm_medium=story&utm_campaign=social_organic</code></td>
+                    <td>스토리 링크 클릭</td>
+                </tr>
+                <tr>
+                    <td><strong>이메일 서명</strong></td>
+                    <td><code>https://abitekitchen.com/?utm_source=email&utm_medium=signature&utm_campaign=email_signature</code></td>
+                    <td>이메일 서명란</td>
+                </tr>
+                <tr>
+                    <td><strong>기본 URL</strong></td>
+                    <td><code>https://abitekitchen.com/</code></td>
+                    <td>파라미터 없음 (직접 입력)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>💡 QR 코드 생성 방법:</strong><br>
+            1. <a href="https://www.qr-code-generator.com/" target="_blank">QR Code Generator</a> 접속<br>
+            2. 위 UTM URL 복사해서 입력<br>
+            3. QR 코드 다운로드<br>
+            4. 명함 디자인에 삽입
+        </div>
+    </div>
+
+    <!-- Google Search Console -->
+    <div class="section">
+        <h2>4. Google Search Console - 선택 ⭕</h2>
+        <p><strong>설치 위치:</strong> <code>&lt;head&gt;</code> 태그 안</p>
+        
+        <div class="note">
+            <strong>⚠️ 설치 전 준비:</strong><br>
+            1. <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a> 접속<br>
+            2. 속성 추가 → URL 접두어 선택<br>
+            3. HTML 태그 확인 방법 선택<br>
+            4. 메타 태그 복사<br>
+            5. 아래 코드 형식으로 붙여넣기
+        </div>
+
+        <pre><code>&lt;!-- Google Search Console 소유권 확인 --&gt;
+&lt;meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /&gt;</code></pre>
+    </div>
+
+    <!-- 완성 예시 -->
+    <div class="section">
+        <h2>5. 완성된 HTML 구조 예시</h2>
+        <p>실제 HTML 파일에 적용한 모습:</p>
+        
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;에이바이트키친 - A-Bite Kitchen&lt;/title&gt;
+    
+    &lt;!-- Google Analytics 4 --&gt;
+    &lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+      
+      if (window.location.search.includes('utm_source=qr')) {
+        gtag('event', 'qr_scan', {
+          'event_category': 'engagement',
+          'event_label': 'business_card'
+        });
+      }
+      
+      function trackPartnershipClick() {
+        gtag('event', 'partnership_inquiry', {
+          'event_category': 'conversion',
+          'event_label': 'form_click'
+        });
+      }
+    &lt;/script&gt;
+    
+    &lt;!-- Meta Pixel Code (선택) --&gt;
+    &lt;script&gt;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.com/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    &lt;/script&gt;
+    
+    &lt;!-- Google Search Console (선택) --&gt;
+    &lt;meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /&gt;
+    
+    &lt;!-- CSS 파일 --&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 웹사이트 콘텐츠 --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- 체크리스트 -->
+    <div class="section">
+        <h2>✅ 설치 체크리스트</h2>
+        <ul>
+            <li>☐ Google Analytics 계정 생성 및 측정 ID 발급</li>
+            <li>☐ GA4 코드 모든 페이지에 설치</li>
+            <li>☐ Meta Pixel 생성 (인스타 활용 시)</li>
+            <li>☐ UTM URL 생성 (명함 QR, 인스타 프로필)</li>
+            <li>☐ QR 코드 생성 (UTM URL 포함)</li>
+            <li>☐ Google Search Console 소유권 확인</li>
+            <li>☐ 실제 방문 테스트 (모바일/데스크톱)</li>
+            <li>☐ GA4 실시간 보고서에서 데이터 확인</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📊 GA4에서 확인하는 방법</h2>
+        <ol>
+            <li>Google Analytics 접속</li>
+            <li>보고서 → 실시간 보고서 (방금 들어온 방문자 확인)</li>
+            <li>보고서 → 획득 → 트래픽 획득 (유입 소스별 분석)
+                <ul>
+                    <li>qr / business_card (명함 QR)</li>
+                    <li>instagram / bio_link (인스타 프로필)</li>
+                    <li>(direct) / (none) (직접 입력)</li>
+                </ul>
+            </li>
+            <li>보고서 → 참여 → 페이지 및 화면 (페이지별 체류시간)</li>
+            <li>보고서 → 참여 → 이벤트 (커스텀 이벤트 확인)
+                <ul>
+                    <li>qr_scan (QR 스캔)</li>
+                    <li>partnership_inquiry (제휴문의 클릭)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section" style="background: #f0f7ff; border-left: 4px solid #2196F3;">
+        <h2>💡 주요 팁</h2>
+        <ul>
+            <li><strong>데이터 쌓는 기간:</strong> 최소 1개월 데이터 필요 (신뢰도 높은 분석)</li>
+            <li><strong>월간 리포트:</strong> 매월 1일에 GA4 확인 후 간단히 정리</li>
+            <li><strong>투자자용 자료:</strong> "월 500명 방문, QR 60% 유입, 제휴문의 5건" 같은 데이터</li>
+            <li><strong>모바일 테스트:</strong> 실제 스마트폰으로 QR 스캔 후 GA4 실시간 확인</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+* { margin: 0; padding: 0; box-sizing: border-box;
+
+}:root { /* Colors */
+    --main100: #F5EDE0; --main200: #6B6054; --sub100: #C8A666; --sub200: #01200F; --white: #FFFFFF; --black: #000000; --color100: #F5F5F5; --color200: #EFEFEF; --color300: #D9DBE0; --color400: #B6B7BE; --color500: #979AA3; --color600: #868793; --color700: #5F616D; --color800: #333333; --color900: #1A1D21; /* Typography */
+    --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; --font-heading: 'Gowun Batang', serif; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; line-height: 1.2; }
+body { font-family: var(--font-body); color: var(--color800); line-height: 1.4; letter-spacing: -0.4px; background: var(--white); -webkit-font-smoothing: antialiased; font-weight: 300; }
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+li, ul { list-style: none; }
+/* ===================================
+ Hero Section - 모바일 기본
+ ================================== */
+.hero-section { position: relative; height: 100vh; min-height: 500px; background: url('../images/mainbanner.jpg') center/cover no-repeat; display: flex; flex-direction: column; }
+.hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); }
+/* Header - 모바일 기본 */
+.header { z-index: 100; padding: 20px 0; width: 100%; }
+.header_inner { max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; /* 추가 */
+}
+.nav { display: flex; gap: 15px; flex-wrap: wrap; }
+.nav a { font-family: var(--font-body); font-size: 14px; font-weight: 300; color: var(--white); }
+.arrow-button i { background: url('../images/svg/arrow_left.svg') center/cover no-repeat; width: 20px; height: 20px; display: block; }
+/* Hero Content - 모바일 기본 */
+.hero-content { padding: 150px 16px; z-index: 10; width: 100%; max-width: 1100px; margin: 0 auto; color: var(--white); display: flex; flex-direction: column; gap: 15px; }
+.hero-title { font-size: 28px; line-height: 1.3; }
+.hero-subtitle { font-size: 16px; }
+.hero-content .arrow-button a { display: flex; gap: 8px; align-items: center; }
+/* ===================================
+ Section Common Styles - 모바일 기본
+ ================================== */
+.menu-content { min-height: 500px; padding: 60px 0; display: flex; flex-direction: column; justify-content: center; }
+.signature-menu { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
+.section-label { font-size: 12px; letter-spacing: 1px; color: var(--main200); padding: 4px 10px; border: 1px solid var(--main200); }
+.section-title { font-size: 28px; }
+.section-description { font-size: 14px; line-height: 1.6; }
+.signature-menu .arrow-button a { display: flex; gap: 8px; align-items: center; }
+.signature-menu .arrow-button i { filter: brightness(0); }
+/* 슬라이드 - 모바일 기본 */
+.slider-container { overflow: hidden; width: 100%; margin-top: 30px; }
+.slider-track { display: flex; gap: 40px; animation: scroll 30s linear infinite; width: max-content; }
+.menu-item { flex-shrink: 0; width: 250px; position: relative; }
+.menu-item img { width: 100%; height: auto; }
+.menu-item p { text-align: center; width: 100%; position: absolute; bottom: 5px; font-size: 14px; font-weight: 700; font-family: var(--font-heading); }
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.slider-track:hover { animation-play-state: paused; }
+/* ===================================
+ Partnership Section - 모바일 기본
+ ================================== */
+.partnership-section { color: var(--white); position: relative; padding: 60px 16px; background: url('../images/partner_banner.png') center/cover no-repeat; }
+.partnership-inner { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
+.partnership-title { color: var(--sub100); font-size: 28px; }
+.partnership-description { color: var(--white); font-size: 14px; line-height: 1.6; }
+.partnership-section .arrow-button a { display: flex; gap: 8px; align-items: center; }
+/* ===================================
+ Location Section - 모바일 기본
+ ================================== */
+.location-section { min-height: 500px; padding: 60px 0; background: var(--main100); display: flex; flex-direction: column; justify-content: center; }
+.location-inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 15px; }
+/* Location Grid - 모바일 기본 */
+.location-grid { display: grid; grid-template-columns: 1fr; gap: 15px; width: 100%; }
+.location-card { position: relative; overflow: hidden; cursor: pointer; height: 250px; }
+.location-card img { width: 100%; height: 100%; object-fit: cover; }
+/* ===================================
+ Footer - 모바일 기본
+ ================================== */
+.footer { background: #302F2E; color: var(--white); padding: 40px 16px; }
+.footer-inner { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+.info-item { display: flex; flex-direction: column; gap: 5px; }
+.info-item li { display: flex; flex-wrap: wrap; gap: 5px; }
+.item_value { font-family: var(--font-heading); font-size: 18px; }
+.cs-content { color: var(--color500); font-size: 12px; }
+/* ===================================
+ Brand Section
+ ================================== */
+.brand-section { position: relative; height: 50px; background: url('../images/mainbanner.jpg') center/cover no-repeat; display: flex; flex-direction: column; }
+.brand-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); }
+/* ===================================
+ 태블릿 (768px~)
+ ================================== */
+@media (min-width:768px) {
+    .container { padding: 0 20px; }
+    .hero-section { min-height: 600px; }
+    .header { padding: 25px 0; }
+    .header_inner { padding: 0 20px; }
+    .nav { gap: 20px; }
+    .nav a { font-size: 16px; }
+    .arrow-button i { width: 22px; height: 22px; }
+    .hero-content { padding: 200px 20px; gap: 20px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 18px; }
+    .menu-content { min-height: 600px; padding: 80px 0; }
+    .signature-menu { padding: 0 20px; gap: 20px; }
+    .section-label { font-size: 14px; padding: 4px 12px; }
+    .section-title { font-size: 36px; }
+    .section-description { font-size: 16px; }
+    .slider-track { gap: 60px; }
+    .menu-item { width: 320px; }
+    .menu-item p { font-size: 16px; }
+    .partnership-section { padding: 80px 20px; }
+    .partnership-inner { gap: 20px; }
+    .partnership-title { font-size: 36px; }
+    .partnership-description { font-size: 16px; }
+    .location-section { min-height: 600px; padding: 80px 0; }
+    .location-inner { padding: 0 20px; gap: 20px; }
+    .location-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .location-card { height: 300px; }
+    .footer { padding: 50px 20px; }
+    .info-item { flex-direction: row; gap: 10px; }
+    .item_value { font-size: 20px; }
+    .cs-content { font-size: 13px; }
+}
+/* ===================================
+ 데스크톱 (1024px~)
+ ================================== */
+@media (min-width:1024px) {
+    .container { padding: 0 40px; }
+    .hero-section { min-height: 700px; }
+    .header { padding: 30px 0; }
+    .header_inner { padding: 0 40px; }
+    .nav { gap: 30px; }
+    .nav a { font-size: 18px; }
+    .arrow-button i { width: 24px; height: 24px; }
+    .hero-content { padding: 380px 40px; gap: 25px; }
+    .hero-title { font-size: 45px; }
+    .hero-subtitle { font-size: 20px; }
+    .menu-content { min-height: 800px; padding: 100px 0; }
+    .signature-menu { padding: 0 40px; gap: 25px; }
+    .section-label { font-size: 16px; }
+    .section-title { font-size: 45px; }
+    .section-description { font-size: 20px; }
+    .slider-track { gap: 100px; }
+    .menu-item { width: 400px; }
+    .menu-item p { font-size: 18px; }
+    .partnership-section { padding: 100px 40px; }
+    .partnership-inner { gap: 25px; }
+    .partnership-title { font-size: 45px; }
+    .partnership-description { font-size: 20px; }
+    .location-section { min-height: 700px; }
+    .location-inner { padding: 0 40px; gap: 25px; }
+    .location-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .location-card { height: 350px; }
+    .footer { padding: 50px 40px; }
+    .item_value { font-size: 22px; }
+    .cs-content { font-size: 14px; }
+}

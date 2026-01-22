@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>에이바이트키친 - A bite kitchen</title>
+
+    <!-- //font// -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style-v2.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Swiper JS (슬라이드용) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+
+      if (window.location.search.includes("utm_source=qr")) {
+        gtag("event", "qr_scan", {
+          event_category: "engagement",
+          event_label: "business_card",
+        });
+      }
+
+      function trackPartnershipClick() {
+        gtag("event", "partnership_inquiry", {
+          event_category: "conversion",
+          event_label: "form_click",
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+
+      <!-- Header -->
+
+      <header class="header">
+        <ul class="header_inner">
+          <li class="logo">
+            <a href="/"><img src="images/logo.svg" alt="" /></a>
+          </li>
+          <li class="nav">
+            <a href="#about">회사소개</a>
+            <a href="#menu">메뉴보기</a>
+            <a href="#location">지점안내</a>
+          </li>
+        </ul>
+      </header>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1 class="hero-title gowun-batang-regular">정직한 재료, 진짜 맛</h1>
+        <p class="hero-subtitle">
+          신선하고 프리미엄 재료를 사용한 것과 같다,<br />
+          오늘도 에이바이트키친과 함께합니다
+        </p>
+        <p class="arrow-button">
+          <a href="about.html"> 브랜드스토리 <i></i> </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Signature Menu Section -->
+    <section class="menu-content">
+      <div class="signature-menu" id="menu">
+        <p class="section-label">시그니처 메뉴</p>
+        <h2 class="section-title">10년간 사랑받은 시그니처</h2>
+        <p class="section-description">
+          2016년 대구 동성로에서 시작해 10년,<br />
+          동성로·경북대·영남대 3개 지점으로 성장한<br />
+          대구를 대표하는 퓨전 양식 레스토랑입니다
+        </p>
+        <p class="arrow-button">
+          <a href="menu.html"> 메뉴 보러가기 <i></i> </a>
+        </p>
+      </div>
+
+      <!-- Swiper Slider -->
+      <div class="slider-container">
+        <ul class="slider-track">
+          <!-- 원본 메뉴 -->
+          <li class="menu-item">
+            <img src="images/png/aglio_olio.png" alt="알리오올리오" />
+            <p class="menu-name">알리오올리오</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/cream_pasta.png" alt="크림 파스타" />
+            <p class="menu-name">크림 파스타</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/meat_bomb_rice_bowl.png" alt="고기폭탄 덮밥" />
+            <p class="menu-name">고기폭탄 덮밥</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/pork_jowl_rice_bowl.png" alt="삼겹 덮밥" />
+            <p class="menu-name">삼겹 덮밥</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/pork_neck_steak.png" alt="목살 스테이크" />
+            <p class="menu-name">목살 스테이크</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/tomato_pasta.png" alt="토마토 파스타" />
+            <p class="menu-name">토마토 파스타</p>
+          </li>
+
+          <!-- 복사본 (끊김 없이 이어지게) -->
+          <li class="menu-item">
+            <img src="images/png/aglio_olio.png" alt="알리오올리오" />
+            <p class="menu-name">알리오올리오</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/cream_pasta.png" alt="크림 파스타" />
+            <p class="menu-name">크림 파스타</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/meat_bomb_rice_bowl.png" alt="고기폭탄 덮밥" />
+            <p class="menu-name">고기폭탄 덮밥</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/pork_jowl_rice_bowl.png" alt="삼겹 덮밥" />
+            <p class="menu-name">삼겹 덮밥</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/pork_neck_steak.png" alt="목살 스테이크" />
+            <p class="menu-name">목살 스테이크</p>
+          </li>
+          <li class="menu-item">
+            <img src="images/png/tomato_pasta.png" alt="토마토 파스타" />
+            <p class="menu-name">토마토 파스타</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership-section">
+      <div class="partnership-inner">
+        <h2 class="partnership-title">함께 만들어갈 파트너를 찾습니다</h2>
+        <p class="partnership-description">
+          가맹점 창업, 납품 제안, 협업 사항,<br />
+          편하게 문의해주세요
+        </p>
+
+        <p class="arrow-button">
+          <a href="about.html"> 문의하기 <i></i> </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="location">
+      <div class="location-inner">
+        <p class="section-label">지점안내</p>
+        <h2 class="section-title">가장 가까운 에이바이트키친</h2>
+        <p class="section-description">
+          가까운 지점을 찾아 오늘의 맛있는 한 끼를 즐기세요
+        </p>
+
+        <!-- Location Grid -->
+        <ul class="location-grid">
+          <li class="location-card">
+            <img src="images/동성로점.png" alt="동성로점" />
+          </li>
+
+          <li class="location-card">
+            <img src="images/경북대점.png" alt="경북대점" />
+          </li>
+
+          <li class="location-card">
+            <img src="images/영남대점.png" alt="영남대점" />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <ul class="info-item">
+          <li>
+            <span class="item_label">평일(월~금)</span>
+            <span class="item_value">AM 09:30~PM 05:30</span>
+          </li>
+          <li>
+            <span class="item_label">창업문의</span>
+            <span class="item_value">1644-6288</span>
+          </li>
+        </ul>
+
+        <ul class="info-item">
+          <li><a href="">개인정보처리방침 </a></li>
+          <li><a href="">이용약관</a></li>
+        </ul>
+
+        <ul >
+          <li class="cs-content">
+            본아이에프(주) 서울특별시 영등포구 선유로 165 (양평동3가,
+            와이피센터) 6층 | 대표자명 : 이진희 | 사업자등록번호
+            101-86-07256 | 통신판매신고번호:2019-서울영등포-1230호 | 문의 :
+            bonwebmaster@bongroup.co.kr copyright 2025 bonif co.ltd.all rights
+            reserved.
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
