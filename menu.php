@@ -18,10 +18,9 @@ $menu_all = [
 
   <!-- Header -->
   <!-- Page Hero -->
-  <section class="hero-section" style="height:35vh; min-height:250px;">
+  <section class="hero-section" >
     <div class="hero-overlay"></div>
-    <div class="hero-content" style="padding-top:0; justify-content:flex-end; padding-bottom:40px;">
-      <p class="section-label" style="color:#fff; border-color:rgba(255,255,255,0.6);">메뉴</p>
+    <div class="hero-content" >
       <h1 class="hero-title">당신의 한 끼, 우리만의 맛을 만나보세요</h1>
     </div>
   </section>
@@ -65,34 +64,6 @@ $menu_all = [
       </p>
     </div>
   </section>
-
-<style>
-.menu-page-section { background: var(--white); padding: 60px 0; }
-.menu-page-inner   { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-
-/* 탭 */
-.menu-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--color300); margin-bottom: 40px; }
-.tab-item  { padding: 12px 24px; font-size: 14px; cursor: pointer; color: var(--color500); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.3s; }
-.tab-item.active, .tab-item:hover { color: var(--main200); border-bottom-color: var(--main200); }
-
-/* 그리드 */
-.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; }
-.menu-grid-item { cursor: pointer; }
-.menu-grid-img  { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 16px; }
-.menu-grid-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-.menu-grid-item:hover .menu-grid-img img { transform: scale(1.05); }
-.menu-grid-name { font-family: var(--font-heading); font-size: 16px; color: var(--color800); margin-bottom: 8px; }
-.menu-grid-desc { font-size: 12px; color: var(--color500); line-height: 1.7; }
-.menu-grid-item.hidden { display: none; }
-
-@media (max-width: 768px) {
-  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
-  .tab-item  { padding: 10px 14px; font-size: 13px; }
-}
-@media (max-width: 480px) {
-  .menu-grid { grid-template-columns: 1fr; }
-}
-</style>
 
 <script>
 document.querySelectorAll('.tab-item').forEach(tab => {

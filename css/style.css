@@ -75,9 +75,9 @@ li, ul { list-style: none; }
 .hero-content {
   padding: 150px 16px; z-index: 10;
   width: 100%; max-width: 1100px; margin: 0 auto;
-  color: var(--white); display: flex; flex-direction: column; gap: 15px;
+  color: var(--white); display: flex; flex-direction: column; gap: 15px; position: relative;
 }
-.hero-title    { font-size: 28px; line-height: 1.3; }
+.hero-title    { font-size: 28px; line-height: 1.3;   }
 .hero-subtitle { font-size: 16px; }
 .hero-content .arrow-button a { display: flex; gap: 8px; align-items: center; }
 
@@ -237,4 +237,164 @@ li, ul { list-style: none; }
   .footer { padding: 50px 40px; }
   .item_value { font-size: 22px; }
   .cs-content { font-size: 14px; }
+}
+
+/* ===================================
+   브랜드 스토리
+   =================================== */
+.brand-stories { background: var(--white); max-width: 1340px; margin: 0 auto; display: flex; flex-direction: column; gap: 150px; }
+
+.brand-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+.brand-story.reverse { direction: rtl; }
+.brand-story.reverse > * { direction: ltr; }
+
+.brand-story__text {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background: var(--white);
+}
+.brand-story__no {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: var(--color300);
+  line-height: 1;
+}
+.brand-story__title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--color800);
+  line-height: 1.3;
+}
+.brand-story__body p {
+  font-size: 14px;
+  color: var(--color600);
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+.brand-story__img { overflow: hidden; }
+.brand-story__img img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 768px) {
+  .brand-story,
+  .brand-story.reverse { grid-template-columns: 1fr; direction: ltr; }
+  .brand-story__img    { height: 280px; }
+  .brand-story__text   { padding: 50px 24px; }
+  .brand-story__no     { font-size: 36px; }
+  .brand-story__title  { font-size: 22px; }
+}
+
+/* ===================================
+   메뉴 / 위치 페이지 공통
+   =================================== */
+.menu-page-section { background: var(--white); padding: 60px 0; }
+.menu-page-inner   { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+/* 탭 */
+.menu-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--color300); margin-bottom: 40px; }
+.tab-item  { padding: 12px 24px; font-size: 14px; cursor: pointer; color: var(--color500); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.3s; }
+.tab-item.active, .tab-item:hover { color: var(--main200); border-bottom-color: var(--main200); }
+
+/* 그리드 */
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; }
+.menu-grid-item { cursor: pointer; }
+.menu-grid-img  { aspect-ratio: 1/1; overflow: hidden; margin-bottom: 16px; }
+.menu-grid-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.menu-grid-item:hover .menu-grid-img img { transform: scale(1.05); }
+.menu-grid-name { font-family: var(--font-heading); font-size: 16px; color: var(--color800); margin-bottom: 8px; }
+.menu-grid-desc { font-size: 12px; color: var(--color500); line-height: 1.7; }
+.menu-grid-item.hidden { display: none; }
+
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .tab-item  { padding: 10px 14px; font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .menu-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================================
+   파트너십 폼
+   =================================== */
+.partner-form-section { background: var(--white); padding: 80px 16px; }
+.partner-form-inner   { max-width: 760px; margin: 0 auto; }
+.partner-form-header  { margin-bottom: 48px; }
+.partner-form-header h2 { font-family: var(--font-heading); font-size: 32px; color: var(--color800); margin: 12px 0 8px; }
+.partner-form-sub     { font-size: 13px; color: var(--color500); }
+
+.partner-errors { background: #fff3cd; border-left: 3px solid var(--sub100); padding: 16px 20px; margin-bottom: 24px; }
+.partner-errors p { font-size: 13px; color: var(--main200); line-height: 2; }
+
+.pform-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pform-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.pform-group label { font-size: 12px; letter-spacing: 0.05em; color: var(--main200); font-weight: 500; }
+
+.pform-group input,
+.pform-group textarea {
+  background: var(--color100);
+  border: 1px solid var(--color300);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color800);
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.pform-group input:focus,
+.pform-group textarea:focus { border-color: var(--main200); background: var(--white); }
+.pform-group textarea { resize: vertical; }
+
+.pform-radio-group { display: flex; flex-wrap: wrap; gap: 12px; }
+.pform-radio       { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.pform-radio input { width: 16px; height: 16px; accent-color: var(--main200); }
+.pform-radio span  { font-size: 14px; color: var(--color700); }
+
+.partner-btn {
+  display: inline-block;
+  background: var(--main200);
+  color: var(--white);
+  padding: 16px 40px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+  text-align: center;
+}
+.partner-btn:hover { background: var(--color800); }
+
+.partner-success { text-align: center; padding: 60px 20px; }
+.partner-success p { font-family: var(--font-heading); font-size: 20px; color: var(--color800); margin-bottom: 12px; line-height: 1.6; }
+.partner-success .partner-btn { margin-top: 24px; }
+
+@media (max-width: 768px) {
+  .partner-info-inner { grid-template-columns: 1fr; }
+  .pform-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+
+/* ===================================
+   서브페이지 히어로 (brand / menu / partnership 공통)
+   =================================== */
+.hero-section--sub {
+  height: 35vh;
+  min-height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content--center {
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
