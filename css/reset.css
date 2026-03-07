@@ -1,0 +1,50 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* ── 메인 컬러 ── */
+  --main100: #F5EDE0;
+  --main200: #6B6054;
+  --sub100:  #C8A666;
+  --sub200:  #01200F;
+
+  /* ── 그레이 스케일 ── */
+  --white:    #FFFFFF;
+  --black:    #000000;
+  --color100: #F5F5F5;
+  --color200: #EFEFEF;
+  --color300: #D9DBE0;
+  --color400: #B6B7BE;
+  --color500: #979AA3;
+  --color600: #868793;
+  --color700: #5F616D;
+  --color800: #333333;
+  --color900: #1A1D21;
+
+  /* ── 별칭 (location.css 호환) ── */
+  --dark-brown: var(--main200);   /* #6B6054 */
+  --cream:      var(--main100);   /* #F5EDE0 */
+  --text-dark:  var(--color800);  /* #333333 */
+  --text-light: var(--color500);  /* #979AA3 */
+
+  /* ── 폰트 ── */
+  --font-body:    'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Gowun Batang', serif;
+  --font-serif:   var(--font-heading); /* location.css 호환 */
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; line-height: 1.2; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color800);
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+li, ul { list-style: none; }

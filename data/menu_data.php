@@ -1,7 +1,4 @@
 <?php
-$page_title = '지점안내';
-require_once __DIR__ . '/includes/header.php';
-
 $categories = ['스테이크', '덮밥/리조또', '파스타', '기타'];
 
 $menu_all = [
@@ -14,59 +11,5 @@ $menu_all = [
   ['cat'=>'덮밥/리조또','img'=>'images/png/pork_jowl_rice_bowl.png','name'=>'트러플 크림 리조또',          'desc'=>'고급 트러플 향을 입혀 만들어낸 크리미한 리조또에 특별하게 담아낸 고급 요리'],
   ['cat'=>'파스타',   'img'=>'images/png/cream_pasta.png',          'name'=>'상하이 크림 파스타',          'desc'=>'에이바이트키친만의 특특한 상하이 크림 소스를 이용하여 만들어낸 동양과 서양의 만남 파스타'],
 ];
+
 ?>
-
-  <!-- Header -->
-  <!-- Page Hero -->
-  <?php 
-$hero_title= "지점안내";
-$hero_bg= "images/mainbanner.jpg";
-require_once __DIR__ . '/includes/hero_section.php';
-?>
-
-  <!-- Menu Tabs + Grid -->
-  <section class="menu-page-section">
-    <div class="menu-page-inner">
-
-      <!-- 탭 -->
-      <ul class="menu-tabs" id="menuTabs">
-        <li class="tab-item active" data-cat="전체">전체</li>
-        <?php foreach($categories as $cat): ?>
-        <li class="tab-item" data-cat="<?= $cat ?>"><?= $cat ?></li>
-        <?php endforeach; ?>
-      </ul>
-
-      <!-- 메뉴 그리드 -->
-      <ul class="menu-grid" id="menuGrid">
-        <?php foreach($menu_all as $item): ?>
-        <li class="menu-grid-item" data-cat="<?= $item['cat'] ?>">
-          <div class="menu-grid-img">
-            <img src="<?= $item['img'] ?>" alt="<?= $item['name'] ?>">
-          </div>
-          <div class="menu-grid-info">
-            <p class="menu-grid-name"><?= $item['name'] ?></p>
-            <p class="menu-grid-desc"><?= $item['desc'] ?></p>
-          </div>
-        </li>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Partnership CTA -->
-<?php require_once __DIR__ . '/includes/cta_partnership.php';?>
-
-<script>
-document.querySelectorAll('.tab-item').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const cat = tab.dataset.cat;
-    document.querySelectorAll('.menu-grid-item').forEach(item => {
-      item.classList.toggle('hidden', cat !== '전체' && item.dataset.cat !== cat);
-    });
-  });
-});
-</script>
-
-<?php require_once __DIR__ . '/includes/footer.php'; ?>

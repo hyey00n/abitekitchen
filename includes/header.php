@@ -25,6 +25,7 @@ $tab_title = isset($page_title)
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
 
   <?php if (!empty($extra_css)): ?>

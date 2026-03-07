@@ -4,12 +4,11 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 
   <!-- Page Hero -->
-  <section class="hero-section" >
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">함께 만들어갈<br>파트너를 찾습니다</h1>
-    </div>
-  </section>
+  <?php 
+$hero_title= "창업문의";
+$hero_bg= "images/mainbanner.jpg";
+require_once __DIR__ . '/includes/hero_section.php';
+?>
 
   <!-- Form -->
   <section class="partner-form-section">
