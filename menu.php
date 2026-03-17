@@ -4,33 +4,30 @@ require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/data/menu_data.php';
 ?>
 
-  <!-- Header -->
-  <!-- Page Hero -->
-  <?php 
-$hero_title= "메뉴소개";
-$hero_bg= "images/mainbanner.jpg";
-require_once __DIR__ . '/includes/hero_section.php';
+<?php
+  $hero_title = '메뉴소개';
+  $hero_bg    = 'images/mainbanner.jpg';
+  require_once __DIR__ . '/includes/hero_section.php';
 ?>
 
-  <!-- Menu Tabs + Grid -->
+<main>
+
   <section class="menu-page-section">
     <div class="menu-page-inner">
 
-      <!-- 탭 -->
-      <ul class="menu-tabs" id="menuTabs">
-        <li class="tab-item active" data-cat="전체">전체</li>
-        <?php foreach($categories as $cat): ?>
-        <li class="tab-item" data-cat="<?= $cat ?>"><?= $cat ?></li>
+      <ul class="menu-tabs" id="menuTabs" role="tablist">
+        <li class="tab-item active" data-cat="전체" role="tab">전체</li>
+        <?php foreach ($categories as $cat): ?>
+        <li class="tab-item" data-cat="<?= $cat ?>" role="tab"><?= $cat ?></li>
         <?php endforeach; ?>
       </ul>
 
-      <!-- 메뉴 그리드 -->
       <ul class="menu-grid" id="menuGrid">
-        <?php foreach($menu_all as $item): ?>
+        <?php foreach ($menu_all as $item): ?>
         <li class="menu-grid-item" data-cat="<?= $item['cat'] ?>">
-          <div class="menu-grid-img">
+          <figure class="menu-grid-img">
             <img src="<?= $item['img'] ?>" alt="<?= $item['name'] ?>">
-          </div>
+          </figure>
           <div class="menu-grid-info">
             <p class="menu-grid-name"><?= $item['name'] ?></p>
             <p class="menu-grid-desc"><?= $item['desc'] ?></p>
@@ -38,11 +35,13 @@ require_once __DIR__ . '/includes/hero_section.php';
         </li>
         <?php endforeach; ?>
       </ul>
+
     </div>
   </section>
 
-  <!-- Partnership CTA -->
-<?php require_once __DIR__ . '/includes/cta_partnership.php';?>
+  <?php require_once __DIR__ . '/includes/cta_partnership.php'; ?>
+
+</main>
 
 <script>
 document.querySelectorAll('.tab-item').forEach(tab => {
