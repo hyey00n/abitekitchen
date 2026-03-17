@@ -7,11 +7,19 @@ require_once __DIR__ . '/includes/header.php';
   <div class="hero-overlay"></div>
 
   <header class="site-header">
-    <div class="header-inner">
+    <div class="header-inner container">
       <a href="/" class="logo">
         <img src="images/logo.svg" alt="<?= SITE_NAME ?>">
       </a>
-      <nav class="nav">
+
+      <!-- 햄버거 버튼 (모바일) -->
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
         <a href="brand.php">브랜드스토리</a>
         <a href="menu.php">메뉴소개</a>
         <a href="location.php">지점소개</a>
@@ -20,7 +28,7 @@ require_once __DIR__ . '/includes/header.php';
     </div>
   </header>
 
-  <div class="hero-content">
+  <div class="hero-content container">
     <h1 class="hero-title gowun-batang-regular">정직한 재료, 진짜 맛</h1>
     <p class="hero-subtitle">
       신선하고 프리미엄 재료를 사용한 것과 같다,<br>
@@ -36,7 +44,7 @@ require_once __DIR__ . '/includes/header.php';
 
   <!-- 시그니처 메뉴 -->
   <section class="menu-content">
-    <div class="signature-menu" id="menu">
+    <div class="signature-menu container" id="menu">
       <p class="section-label">시그니처 메뉴</p>
       <h2 class="section-title">10년간 사랑받은 시그니처</h2>
       <p class="section-description">
@@ -49,7 +57,7 @@ require_once __DIR__ . '/includes/header.php';
       </p>
     </div>
 
-    <div class="slider-container">
+    <div class="slider-container" aria-label="시그니처 메뉴 슬라이더">
       <ul class="slider-track">
         <?php for ($pass = 0; $pass < 2; $pass++): foreach ($menu_items as $item): ?>
         <li class="menu-item">
@@ -66,7 +74,7 @@ require_once __DIR__ . '/includes/header.php';
 
   <!-- 지점 안내 (홈 - 카드 그리드) -->
   <section class="location-section" id="location">
-    <div class="location-inner">
+    <div class="location-inner container">
       <p class="section-label">지점안내</p>
       <h2 class="section-title">가장 가까운 에이바이트키친</h2>
       <p class="section-description">가까운 지점을 찾아 오늘의 맛있는 한 끼를 즐기세요</p>

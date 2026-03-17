@@ -15,7 +15,6 @@ require_once __DIR__ . '/includes/header.php';
     <div class="partner-form-inner">
 
       <header class="partner-form-header">
-        <p class="section-label">문의하기</p>
         <h2>편하게 연락주세요</h2>
         <p class="partner-form-sub">평일 <?= HOURS_WEEKDAY ?> 운영 | <?= PHONE_CS ?></p>
       </header>
@@ -45,6 +44,7 @@ require_once __DIR__ . '/includes/header.php';
               <?php foreach (['가맹점 창업', '납품 제안', '협업 문의', '기타'] as $t): ?>
               <label class="pform-radio">
                 <input type="radio" name="type" value="<?= $t ?>" <?= (($_POST['type'] ?? '') === $t) ? 'checked' : '' ?>>
+                <span class="pform-radio__dot"></span>
                 <span><?= $t ?></span>
               </label>
               <?php endforeach; ?>

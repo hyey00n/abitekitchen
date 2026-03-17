@@ -51,11 +51,19 @@ $current = basename($_SERVER['PHP_SELF']);
 
 <?php if ($current !== 'index.php'): ?>
 <header class="site-header site-header--sub">
-  <div class="header-inner">
+  <div class="header-inner container">
     <a href="index.php" class="logo">
       <img src="images/logo.svg" alt="<?= SITE_NAME ?>">
     </a>
-    <nav class="nav">
+
+    <!-- 햄버거 버튼 (모바일) -->
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
       <a href="brand.php"       <?= $current === 'brand.php'       ? 'class="active"' : '' ?>>브랜드스토리</a>
       <a href="menu.php"        <?= $current === 'menu.php'        ? 'class="active"' : '' ?>>메뉴소개</a>
       <a href="location.php"    <?= $current === 'location.php'    ? 'class="active"' : '' ?>>지점소개</a>

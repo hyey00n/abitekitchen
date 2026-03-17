@@ -1,5 +1,5 @@
 <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-inner container">
 
       <dl class="footer-hours">
         <div class="footer-hours__row">
@@ -35,6 +35,30 @@
   <?php foreach ($extra_js ?? [] as $js): ?>
   <script src="<?= htmlspecialchars($js) ?>"></script>
   <?php endforeach; ?>
+
+  <!-- 햄버거 메뉴 — 모든 페이지 공통 -->
+  <script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav    = document.getElementById('mainNav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.classList.toggle('is-open', !isOpen);
+      nav.classList.toggle('is-open', !isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.classList.remove('is-open');
+        nav.classList.remove('is-open');
+      });
+    });
+  })();
+  </script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <section class="cta-section">
-  <div class="cta-inner">
+  <div class="cta-inner container">
     <h2 class="cta-title">함께 만들어갈 파트너를 찾습니다</h2>
     <p class="cta-desc">가맹점 창업, 납품 제안, 협업 사항,<br>편하게 문의해주세요</p>
     <p class="arrow-button">

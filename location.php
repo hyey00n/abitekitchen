@@ -1,6 +1,6 @@
 <?php
 $page_title = '지점안내';
-$extra_css  = ['css/location.css'];
+
 require_once __DIR__ . '/includes/header.php';
 
 $branches = [
@@ -77,9 +77,9 @@ $branches = [
   <section class="branch-section">
     <div class="branch-inner">
 
-      <ul class="branch-tabs" id="branchTabs" role="tablist">
+      <ul class="menu-tabs" id="branchTabs" role="tablist">
         <?php foreach ($branches as $i => $branch): ?>
-        <li class="branch-tab <?= $i === 0 ? 'active' : '' ?>"
+        <li class="tab-item <?= $i === 0 ? 'active' : '' ?>"
             data-target="branch-<?= $branch['id'] ?>"
             role="tab">
           <?= $branch['label'] ?>
@@ -92,10 +92,10 @@ $branches = [
                id="branch-<?= $branch['id'] ?>"
                role="tabpanel">
 
-        <div class="branch-intro">
+        <header class="branch-intro">
           <h2 class="branch-title"><?= $branch['title'] ?></h2>
           <p class="branch-desc"><?= $branch['desc'] ?></p>
-        </div>
+        </header>
 
         <figure class="branch-map">
           <iframe
@@ -150,9 +150,9 @@ $branches = [
 <script>
 (function () {
   /* 탭 전환 */
-  document.querySelectorAll('.branch-tab').forEach(tab => {
+  document.querySelectorAll('.tab-item').forEach(tab => {
     tab.addEventListener('click', () => {
-      document.querySelectorAll('.branch-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.branch-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById(tab.dataset.target).classList.add('active');

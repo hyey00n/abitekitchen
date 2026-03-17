@@ -13,7 +13,7 @@ require_once __DIR__ . '/data/menu_data.php';
 <main>
 
   <section class="menu-page-section">
-    <div class="menu-page-inner">
+    <div class="menu-page-inner container">
 
       <ul class="menu-tabs" id="menuTabs" role="tablist">
         <li class="tab-item active" data-cat="전체" role="tab">전체</li>
