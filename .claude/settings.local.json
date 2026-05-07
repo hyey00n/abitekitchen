@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Test-Path \"c:\\\\Users\\\\user\\\\Desktop\\\\작업파일\\\\에이바이트\\\\20260110에이바이트키친\\\\.gitignore\")",
+      "Bash(npm install *)",
+      "WebFetch(domain:ilmi.kr)",
+      "Bash(dir \"c:\\\\Users\\\\user\\\\Desktop\\\\작업파일\\\\에이바이트\\\\20260110에이바이트키친\\\\public\\\\images\" /b)",
+      "Bash(curl -s https://ilmi.kr)",
+      "Bash(Select-String -Pattern \"\\(swiper|banner|hero|slide|animation|keyframes\\)\" -Context 3)",
+      "PowerShell($html = \\(Invoke-WebRequest -Uri \"https://ilmi.kr\" -UseBasicParsing\\).Content; $html | Select-String -Pattern \"\\(swiper|banner|hero|slide|animation|keyframes|transform|transition\\)\" -AllMatches | Select-Object -First 50)",
+      "PowerShell($html = \\(Invoke-WebRequest -Uri \"https://ilmi.kr/resource/css/main.css?v=0.7\" -UseBasicParsing\\).Content; $html | Select-String -Pattern \"\\(swiper|slide|animation|keyframes|fade|zoom|transform|transition\\)\" -AllMatches -CaseSensitive | Select-Object -First 100)",
+      "PowerShell($js = \\(Invoke-WebRequest -Uri \"https://ilmi.kr/resource/js/main.js\" -UseBasicParsing\\).Content; $js | Select-String -Pattern \"\\(swiper|effect|slide|animation|transform|transition\\)\" -AllMatches -CaseSensitive | Select-Object -First 100)"
+    ]
+  }
+}
